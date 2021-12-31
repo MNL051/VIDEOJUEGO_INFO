@@ -1,0 +1,75 @@
+{
+	"name": "bixo2",
+	"plugin-id": "Sprite",
+	"sid": 780868976460337,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "health",
+			"type": "number",
+			"desc": "",
+			"sid": 552513559500982
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 389265749724389
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 906948126477753
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1471891,
+						"collisionPoly": {
+							"points": [
+								0.20833333333333334,
+								0.20833333333333334,
+								0.5,
+								0.08333333333333333,
+								0.75,
+								0.20833333333333334,
+								0.8333333333333334,
+								0.5,
+								0.8333333333333334,
+								0.8333333333333334,
+								0.5,
+								0.9166666666666666,
+								0.125,
+								0.8333333333333334,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 942270846788971,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

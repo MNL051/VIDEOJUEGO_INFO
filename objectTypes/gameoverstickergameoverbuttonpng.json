@@ -1,0 +1,37 @@
+{
+	"name": "gameoverstickergameoverbuttonpng",
+	"plugin-id": "Sprite",
+	"sid": 419115093439998,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 529,
+						"height": 327,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1584457,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 175259806729680,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

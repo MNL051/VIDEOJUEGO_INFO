@@ -1,0 +1,27 @@
+{
+	"name": "menúSheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Inicio",
+					"sid": 131652767342272
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 462548915019019,
+					"parameters": {
+						"layout": "Juego"
+					}
+				}
+			],
+			"sid": 456776840486083
+		}
+	],
+	"sid": 317652446166264
+}
