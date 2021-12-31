@@ -1,0 +1,998 @@
+{
+	"name": "JuegosSheet",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "cooldown",
+			"type": "number",
+			"initialValue": "0.2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 912659652230517
+		},
+		{
+			"eventType": "variable",
+			"name": "speedbixo",
+			"type": "number",
+			"initialValue": "80",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 412982906296461
+		},
+		{
+			"eventType": "variable",
+			"name": "puntuacion",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 340750519737244
+		},
+		{
+			"eventType": "variable",
+			"name": "speedbixo2",
+			"type": "number",
+			"initialValue": "160",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 292421890078084
+		},
+		{
+			"eventType": "variable",
+			"name": "speedbixo3",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 928565908420370
+		},
+		{
+			"eventType": "comment",
+			"text": "moverte con wasd"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 978247458651472,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "personaje",
+					"sid": 360140929707469,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "up"
+					}
+				}
+			],
+			"sid": 834921012243631
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 227008597727129,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "personaje",
+					"sid": 823468232881610,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "left"
+					}
+				}
+			],
+			"sid": 397772502693247
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 992026380551645,
+					"parameters": {
+						"key": 83
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "personaje",
+					"sid": 276236920704689,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "down"
+					}
+				}
+			],
+			"sid": 283647854265348
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 721622835055146,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "personaje",
+					"sid": 105756055575798,
+					"behaviorType": "8Direction",
+					"parameters": {
+						"control": "right"
+					}
+				}
+			],
+			"sid": 235102027100409
+		},
+		{
+			"eventType": "comment",
+			"text": "dispara cuando se clicka"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 544003315401442,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "personaje",
+					"sid": 699830706635865,
+					"parameters": {
+						"object": "bullet",
+						"layer": "\"main\"",
+						"image-point": "1",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "bixo",
+					"sid": 466930501571000,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "speedbixo"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "bixo2",
+					"sid": 895474187778318,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "speedbixo2"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "bixo3",
+					"sid": 907939998308463,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "speedbixo3"
+					}
+				}
+			],
+			"sid": 658083428227195
+		},
+		{
+			"eventType": "comment",
+			"text": "los bixos salen en lugares random"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 509805037219325
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "bixo",
+					"sid": 438261695508237,
+					"parameters": {
+						"angle": "random(360)"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "bixo2",
+					"sid": 421264988592848,
+					"parameters": {
+						"angle": "random(360)"
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "bixo3",
+					"sid": 178348515949415,
+					"parameters": {
+						"angle": "random(360)"
+					}
+				}
+			],
+			"sid": 233776452809826
+		},
+		{
+			"eventType": "comment",
+			"text": "el jugador mira siempre para el mouse "
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 997567138692533
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "personaje",
+					"sid": 497492639880105,
+					"parameters": {
+						"x": "Mouse.X",
+						"y": "Mouse.Y"
+					}
+				}
+			],
+			"sid": 271592776435791
+		},
+		{
+			"eventType": "comment",
+			"text": "resta uno de vida al bixo "
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bullet",
+					"sid": 443760935396164,
+					"parameters": {
+						"object": "bixo"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "bixo",
+					"sid": 717107738272706,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "bullet",
+					"sid": 873403063488296
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 305285591671479,
+					"parameters": {
+						"variable": "speedbixo",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 482007172748479
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bullet",
+					"sid": 921102959624107,
+					"parameters": {
+						"object": "bixo2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "bixo2",
+					"sid": 655677253119666,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "bullet",
+					"sid": 226336891050562
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 193757963443199,
+					"parameters": {
+						"variable": "speedbixo2",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 658593605879586
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bullet",
+					"sid": 623072669261199,
+					"parameters": {
+						"object": "bixo3"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "bixo3",
+					"sid": 900629377231154,
+					"parameters": {
+						"instance-variable": "health",
+						"value": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "bullet",
+					"sid": 989067494215665
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 662702059068987,
+					"parameters": {
+						"variable": "speedbixo3",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 165985788993236
+		},
+		{
+			"eventType": "comment",
+			"text": "suma de puntos"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "bixo",
+					"sid": 894806898201646,
+					"parameters": {
+						"instance-variable": "health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bixo",
+					"sid": 285983539581710
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 260933233497884,
+					"parameters": {
+						"variable": "puntuacion",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "STATUS",
+					"sid": 989741649330163,
+					"parameters": {
+						"text": "puntuacion"
+					}
+				}
+			],
+			"sid": 896095757561689
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "bixo2",
+					"sid": 733033550546862,
+					"parameters": {
+						"instance-variable": "health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bixo2",
+					"sid": 959108111027711
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 972674230213091,
+					"parameters": {
+						"variable": "puntuacion",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "STATUS",
+					"sid": 604540022652758,
+					"parameters": {
+						"text": "puntuacion"
+					}
+				}
+			],
+			"sid": 752000164021600
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "bixo3",
+					"sid": 898164359768503,
+					"parameters": {
+						"instance-variable": "health",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "bixo3",
+					"sid": 582664162218672
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 257501141132603,
+					"parameters": {
+						"variable": "puntuacion",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "STATUS",
+					"sid": 936367164692946,
+					"parameters": {
+						"text": "puntuacion"
+					}
+				}
+			],
+			"sid": 740021553489871
+		},
+		{
+			"eventType": "comment",
+			"text": "el bixo se dirige al juagdor"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "bixo",
+					"sid": 955076432277496
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "bixo",
+					"sid": 511615131302687,
+					"parameters": {
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 162445917814878
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "bixo2",
+					"sid": 801167383829952
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "bixo2",
+					"sid": 409801604066956,
+					"parameters": {
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 736097373551237
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "bixo3",
+					"sid": 805166519965675
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "bixo3",
+					"sid": 668976936159716,
+					"parameters": {
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 858066454669340
+		},
+		{
+			"eventType": "comment",
+			"text": "si un bixo esta a más de 200 pixeles del jugador se gira hacia él "
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 804225954613124,
+					"parameters": {
+						"object": "bixo"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 147896161137610,
+					"parameters": {
+						"first-value": "distance(personaje.X, personaje.Y, bixo.X, bixo.Y)",
+						"comparison": 2,
+						"second-value": "900"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "rotate-toward-position",
+					"objectClass": "bixo",
+					"sid": 607596857692694,
+					"parameters": {
+						"degrees": "1",
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 315999533242597
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 251556710478998,
+					"parameters": {
+						"object": "bixo2"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 846012531892915,
+					"parameters": {
+						"first-value": "distance(personaje.X, personaje.Y, bixo.X, bixo.Y)",
+						"comparison": 2,
+						"second-value": "900"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "rotate-toward-position",
+					"objectClass": "bixo2",
+					"sid": 841864106082778,
+					"parameters": {
+						"degrees": "1",
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 272965207539149
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 130641692987576,
+					"parameters": {
+						"object": "bixo3"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 216636805167970,
+					"parameters": {
+						"first-value": "distance(personaje.X, personaje.Y, bixo.X, bixo.Y)",
+						"comparison": 2,
+						"second-value": "900"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "rotate-toward-position",
+					"objectClass": "bixo3",
+					"sid": 723358676175525,
+					"parameters": {
+						"degrees": "1",
+						"x": "personaje.X",
+						"y": "personaje.Y"
+					}
+				}
+			],
+			"sid": 813549722605082
+		},
+		{
+			"eventType": "comment",
+			"text": "cada tres segundos se crea un bixo con la velocidad de la variable speedbixo"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 996096431332729,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 233998923172023,
+					"parameters": {
+						"object-to-create": "bixo",
+						"layer": "0",
+						"x": "1300",
+						"y": "65",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "bixo",
+					"sid": 265948366739249,
+					"parameters": {
+						"speed": "speedbixo"
+					}
+				}
+			],
+			"sid": 944783275122746
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 464882081794978,
+					"parameters": {
+						"interval-seconds": "4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 259460103786368,
+					"parameters": {
+						"object-to-create": "bixo2",
+						"layer": "0",
+						"x": "500",
+						"y": "1400",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "bixo2",
+					"sid": 767915591089319,
+					"parameters": {
+						"speed": "speedbixo2"
+					}
+				}
+			],
+			"sid": 691601243515767
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 203758172369933,
+					"parameters": {
+						"interval-seconds": "2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 466671247693949,
+					"parameters": {
+						"object-to-create": "bixo2",
+						"layer": "0",
+						"x": "-116",
+						"y": "200",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "bixo2",
+					"sid": 155879544674448,
+					"parameters": {
+						"speed": "speedbixo2"
+					}
+				}
+			],
+			"sid": 358257095045011
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 424412913128726,
+					"parameters": {
+						"interval-seconds": "5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 919619051591834,
+					"parameters": {
+						"object-to-create": "bixo3",
+						"layer": "0",
+						"x": "100",
+						"y": "1200",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "bixo3",
+					"sid": 882548674642511,
+					"parameters": {
+						"speed": "speedbixo3"
+					}
+				}
+			],
+			"sid": 439023453550471
+		},
+		{
+			"eventType": "comment",
+			"text": "GAME OVER"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bixo",
+					"sid": 262772498181846,
+					"parameters": {
+						"object": "personaje"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "personaje",
+					"sid": 849585358189676
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ESPACIO",
+					"sid": 609515124923087,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 401812870569943
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bixo2",
+					"sid": 736402930449947,
+					"parameters": {
+						"object": "personaje"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "personaje",
+					"sid": 344247957221974
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ESPACIO",
+					"sid": 420407294898113,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 110960866725650
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "bixo3",
+					"sid": 734420678158713,
+					"parameters": {
+						"object": "personaje"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "personaje",
+					"sid": 841783236069153
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "ESPACIO",
+					"sid": 603409101154303,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 694429927472478
+		},
+		{
+			"eventType": "comment",
+			"text": "REINICIAR CON ESPACIO "
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 981260120186543,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 381176423902341,
+					"parameters": {
+						"variable": "speedbixo",
+						"value": "80"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 660204166430655,
+					"parameters": {
+						"variable": "puntuacion",
+						"value": "0"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 841251648439758,
+					"parameters": {
+						"layout": "Juego"
+					}
+				}
+			],
+			"sid": 336445037398951
+		}
+	],
+	"sid": 566542318721526
+}

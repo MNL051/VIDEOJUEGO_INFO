@@ -1,0 +1,27 @@
+{
+	"name": "Historia.Sheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Inicio",
+					"sid": 599165534224890
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 951521978747245,
+					"parameters": {
+						"layout": "Juego"
+					}
+				}
+			],
+			"sid": 218160280947643
+		}
+	],
+	"sid": 808947929223971
+}
